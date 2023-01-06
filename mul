@@ -1,0 +1,49 @@
+index.html
+<html>
+<body>
+<h2>Enter Any 2 Numbers !!</h2>
+<form action="Table2.jsp" method="post">
+First No: <input type="text" name="fno"><br>
+Second No: <input type="text" name="sno"><br>
+<input type="submit" value="Show Tables">
+</form>
+<h5>VCE-WT</h5>
+</body>
+table2.jsp
+<html>
+<body>
+<%
+int num1=Integer.parseInt(request.getParameter("fno"));
+int num2=Integer.parseInt(request.getParameter("sno"));
+int range=0;%>
+<h5><center>TABLES FROM <%=num1 %> to <%=num2 %></center></h5>
+<table cellpadding=0 cellspacing=0 align='center' bgcolor='yellow' width=70% >
+<%
+try
+{
+for (int j = 1; j <= 10; j++) {
+%><tr><th>|</th><%
+for (range = num1; range <= num2; range++) { %><td align='center'><%
+out.println(range);
+%></td><td align='center'><%
+out.println("*");
+%></td><td align='center'><%
+out.println(j);
+%></td><td align='center'><%
+out.println(" = ");
+%></td><td align='center'><%
+out.println(range * j);
+%><th>|</th><%
+}
+%></tr><% } }
+catch(Exception e) {
+out.println("Error"); }
+%>
+</table>
+</body>
+</html>
+Step1: Create a folder name week9_multiplication and place in the following path if you xampp 
+is installed in c drive path: C:\xampp\tomcat\webapps\ROOT
+Step2: On Xampp Control Panel, on tomcat service, mysql and Apache
+Step3: On browser and type the following in url to run the program
+http://localhost:8080/week9_multiplication/
